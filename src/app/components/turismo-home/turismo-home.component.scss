@@ -1,0 +1,39 @@
+//TODO
+
+.navbar {
+    box-shadow: 2px 2px 5px #000000;
+    opacity: .9;
+}
+
+.navbar .nav-item .nav-link {
+    color:#fff
+}
+
+.card-body.adjust{
+    min-height: 24vh;
+    height: 22vh;
+}
+
+.name{
+    min-height: 4vh;
+}
+.sub-name{
+    min-height: 13vh;
+}
+
+.infoBody {
+    padding: 3%;
+    margin: 5%;
+    border: 1px #fafafa solid;
+    border-radius: 20px;
+    width: 90%;
+}
+
+mat-icon.material-icons-round.grn {
+    color:green;
+}
+
+.v-center {
+    display: flex;
+    align-items: center;
+}

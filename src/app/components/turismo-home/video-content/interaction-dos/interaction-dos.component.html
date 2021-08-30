@@ -1,0 +1,360 @@
+<!-- INICIO: NAVEGATION -->
+<nav class="navbar navbar-expand-lg navbar-dark nav m-0">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home"> INICIO |</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tours"> TOURS |</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Fin NAVEGATION -->
+<!-- INICIO: TITULO APP -->
+<nav class="banner shadow-none">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="title"> TuristeAR </div>
+      <div class="sub-title"> Argentina para el mundo </div><!--Conoce el mundo desde casa-->
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</nav>
+<!-- Fin TITULO APP -->
+<div class="fondo-demo row" style="min-height: 96vh;">
+
+  <!-- BANNER BsAs-->
+  <div class="banner_ad_bsas my-1">
+  </div>
+  
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-7">
+    <div class="content mt-0 mb-0" role="main">
+      
+      <!--h1 class="text-black my-4"> Buenos Aires interactivo </h1-->
+      <div *ngIf="!redirectHome" class="box m-2">
+
+        <div *ngFor="let point of points">
+
+            <img class="circle-link png-icon" onclick="$('.kuula').show();" (click)="setParamsToKuulaModal(point)"
+                src='{{ "../../../../../assets/img/icon/" + point.img + ".png" }}'
+                style="position: relative" 
+                [ngStyle]="{'top': point.top, 'left': point.left}"
+                [@expand]="redirectHome" placement="top" ngbTooltip="{{point.name}}">
+        </div>
+
+        <div *ngIf="showBtn">
+          <div *ngFor="let option of options">
+
+            <img class="circle-link png-icon" onclick="$('.overlay').show();" (click)="setParamsToModal(option)"
+                src='{{ "../../../../../assets/img/icon/" + option.img + ".png" }}'
+                style="position: relative" 
+                [ngStyle]="{'top': option.top, 'left': option.left}"
+                (click)="onSelect(option)" [@expand]="redirectHome" placement="top" ngbTooltip="{{option.name}}">
+          </div>
+          <!--img (click)="onShowPreview(1002);" class="circle-link-m png-icon" src="../../../../../assets/img/icon/rosedal.png" style="position: relative;top: 140px;left: 140px;">
+          <img (click)="onShowPreview(1003);" class="circle-link png-icon" src="../../../../../assets/img/icon/obelisco.png" style="position: relative;top: 200px;left: 280px;"-->
+        </div>
+
+      </div>
+
+      <div *ngIf="redirectHome" class="m-5">
+        <img height="400" src='../../../../../assets/img/tour_completed.jpg'>
+        <br/>
+        <button color="primary" class="card" style="position: absolute; top: 65%; left: 40%;" onclick="$('.review').show();"> Califica tu experiencia </button>
+      </div>
+      <!-- BANNER ADD Mendoza-->
+      <!--div class="banner_ad_mendoza mb-1">
+      </div-->
+    </div>
+  </div>
+
+  <div class="col-sm-3 pl-5">
+    <div class="container p-2">
+      <div class="row">
+
+        <h3 class="text-center mx-1 my-3">Recuerda</h3>
+
+        <div class="justify-content-center mx-2 my-2 text-on">
+          <p>
+            <mat-icon class="material-icons-round icon-s">where_to_vote</mat-icon>&nbsp;&nbsp;&nbsp;
+            Elegí por donde iniciar el TOUR. Simplemente haz click en el punto que quieras visitar y podrás ver todo.
+          </p>
+          <p>
+            <mat-icon class="material-icons-round icon-s">where_to_vote</mat-icon>&nbsp;&nbsp;&nbsp;
+            Al finalizar el ese punto desaparecerá del mapa y podrás avanzar con las restantes.
+          </p>
+          <p>
+            <mat-icon class="material-icons-round icon-s">where_to_vote</mat-icon>&nbsp;&nbsp;&nbsp;
+            Recorda que podrás visitar los puntos en el orden que quieras.
+          </p>
+        </div>
+
+        <div class="accordion" id="accordionExample" style="font-size: 20px;">
+          <!-- Videos TOURs -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h4 class="mt-1"> Puntos a visitar </h4>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body my-3 mx-2">
+                <div class="row">
+                  <div class="col-auto">
+                    <img src="../../../../../assets/img/icon/puerto_madero.png" style="width: 30px; position:relative;top:-2px">
+                    &nbsp;&nbsp;Puerto Madero
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-auto">
+                    <img src="../../../../../assets/img/icon/rosedal.png" style="width: 30px; position:relative;top:-5px">
+                    &nbsp;&nbsp;Rosedal
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-auto">
+                    <img src="../../../../../assets/img/icon/obelisco.png"style="width: 30px; position:relative;top:-5px">
+                    &nbsp;&nbsp;Obelisco
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Puntos inmersivos -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <h4 class="mt-1">
+                  Puntos inmersivos&nbsp;&nbsp;
+                  <img src="../../../../../assets/img/icon/point.png" style="height: 40px;width: 40px;border-radius: 40px;">
+                </h4>
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body my-3 mx-2">
+                <li>Plaza de Mayo</li>
+                <li>Cementerio de Recoleta</li>
+                <li>El Ateneo</li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-1"></div>
+
+</div>
+
+<div>
+  <!-- GIFs #1 Destinos -->
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col my-n4">
+      <div class="row">
+        <div class="col-sm-5 text-center mx-4 my-5">
+          <p class="mb-n1"> Publicidad </p>
+          <img class="banner_mendoza">
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5 text-center mx-4 my-5">
+          <p class="mb-n1"> Publicidad </p>
+          <img class="banner_turismo">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+<!-- INICIO: FOOTER -->
+<footer class="footer">
+  <div class="container text-white">
+    <br/>
+    <div class="row">
+      <!-- Redes sociales -->
+      <div class="col-md-4 col-lg-5">
+        <div class="title"> Redes sociales </div>
+        <p>
+          <mat-icon class="material-icons-round">facebook</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">TuristeAR</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">travel_explore</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">TuristeAR.blog.com</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">share</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">TuristeAR</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">alternate_email</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Turiste_AR</span>
+        </p>
+      </div>
+      <!-- Contacto -->
+      <div class="col-md-4 col-lg-5">
+        <div class="title"> Valoranos </div>
+        <p>
+          <mat-icon class="material-icons-round">local_cafe</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Cafecito</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">star</mat-icon>&nbsp;&nbsp;
+          <a style="vertical-align: super;" href="https://github.com/AndreaRojas/app-control-turismo-ui" target="_blank" rel="noopener"> Dejanos una estrella</a>
+        </p>
+      </div>
+      <!-- Contacto -->
+      <div class="col-md-4 col-lg-2">
+        <div class="title"> Contacto </div>
+        <p>
+          <mat-icon class="material-icons-round">location_city</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Buenos Aires</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">location_on</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Lima 775, C1073</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">call</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">(011) 4000-7600</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">alternate_email</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">info@turistear.com</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Background -->
+<!--svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+  <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+</svg-->
+
+<!-- Fin FOOTER -->
+<!-- INICIO: Popup Video-->
+<script>
+  $('.overlay').on('click', function(e) {
+    if (e.target !== this) {
+      return;
+    }
+    $('.overlay').hide();
+  });
+</script>
+<div class="overlay">
+  <div class="content modal">
+    <small>
+      <span onclick="$('.overlay').hide();" style="position: fixed;top: 6%;left: 4%;cursor: pointer;">[x] Cerrar</span>
+    </small>
+
+    <div class="py-5"> &nbsp; </div>
+    <div class="row" style="padding: 0px 10% 0px 10%;">
+        <!-- Video container -->
+        <iframe *ngIf="reproductorVideo" title="YouTube video player" width="900" height="350" frameborder="0"
+                  [src]="safeSrc"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  webkitallowfullscreen mozallowfullscreen allowfullscreen>
+        </iframe>
+        <br/>
+        <h4 class="py-5 pb-2"> {{titlePopup}} </h4>
+        <p class="mb-5"> {{descriptionPopup}} </p>
+
+        <button *ngIf="continueVideo" class="card mb-4" (click)="showFullVideo()"><mat-icon class="material-icons-round" style="color:black;"> play_circle_filled </mat-icon>&nbsp;Seguir viendo</button>
+    </div>
+  </div>
+</div>
+<!-- Fin Popup Video-->
+<!-- INICIO: Popup Kuula-->
+<script>
+  $('.kuula').on('click', function(e) {
+    if (e.target !== this) {
+      return;
+    }
+    $('.kuula').hide();
+  });
+</script>
+<div class="kuula">
+  <div class="content modal">
+    <small>
+      <span onclick="$('.kuula').hide();" style="position: fixed;top: 6%;left: 4%;cursor: pointer;">[x] Cerrar</span>
+    </small>
+
+    <h5 class="py-5 pb-2"> {{kuulaTitle}} </h5>
+    <div class="row" style="padding: 0px 10% 0px 10%;">
+        <!-- Video container -->
+        <iframe width="100%" height="640" style="height: 640px; width: 1200px ; border: none; max-width: 100%;" f
+        rameborder="0" allowfullscreen allow="xr-spatial-tracking; gyroscope; accelerometer" 
+        scrolling="no" [src]="kuulaSafeSrc"></iframe>
+        <br/>
+    </div>
+  </div>
+</div>
+<!-- Fin Popup Kuula-->
+<!-- INICIO: Popup REVIEW-->
+<script>
+  $('.review').on('click', function(e) {
+    if (e.target !== this) {
+      return;
+    }
+    $('.review').hide();
+  });
+</script>
+<div class="review">
+  <div class="content modal-s">
+    <small>
+      <span onclick="$('.review').hide();" style="position: fixed;top: 6%;left: 4%;cursor: pointer;">[x] Cerrar</span>
+    </small>
+
+    <h4 class="pt-5 pb-3"> Dejanos tu comentario </h4>
+
+    <div class="row px-5">
+      <div class="text-left">
+        <h5 class="py-3"> ¿Qué te pareció el recorrido? </h5>
+        <mat-icon class="material-icons-round text-warning">star</mat-icon>
+        <mat-icon class="material-icons-round text-warning">star</mat-icon>
+        <mat-icon class="material-icons-round text-warning">star</mat-icon>
+        <mat-icon class="material-icons-round text-warning">star_half</mat-icon>
+        <mat-icon class="material-icons-round text-warning">star_border</mat-icon>
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><mat-icon class="">reviews</mat-icon></span>
+          </div>
+          <textarea class="form-control" placeholder="El recorrido estuvo bueno. Me gustó las experiencia..." aria-label="Comentario"></textarea>
+        </div>
+
+        <br/>
+
+        <h5 class="py-3"> ¿Cómo calificarías al guia? </h5>
+        <mat-icon class="material-icons-round text-warning">star</mat-icon>
+        <mat-icon class="material-icons-round text-warning">star</mat-icon>
+        <mat-icon class="material-icons-round text-warning">star</mat-icon>
+        <mat-icon class="material-icons-round text-warning">star_half</mat-icon>
+        <mat-icon class="material-icons-round text-warning">star_border</mat-icon>
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><mat-icon class="">reviews</mat-icon></span>
+          </div>
+          <textarea class="form-control" placeholder="Lo super recomiendo, muy claro y divertido..." aria-label="Comentario"></textarea>
+        </div>
+      </div>
+      <!--(click)="sendReview()"-->
+      <div class="row">
+        <div class="col-14">
+          <button class="float-right card my-3 mr-n4"><mat-icon class="material-icons-round" style="color:black;"> send </mat-icon>&nbsp;Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin Popup Kuula-->

@@ -1,0 +1,47 @@
+.margin {
+    padding: 5% 5% 0% 5%;
+}
+
+.label-info{
+    font-size: 14px;
+    color: grey;
+}
+
+.v-center {
+    display: flex;
+    align-items: center;
+}
+
+.card-container{
+    border: 1px grey solid;
+    border-radius: 10px;
+    padding: 5%;
+}
+
+.modal-dialog {
+    max-width: 750px;
+}
+
+.modal-info {
+    max-width: 1340px;
+}
+
+a,a:visited {
+    color:black
+}
+
+mat-icon.icon-custo{
+    font-size: 28px !important;
+    vertical-align: sub;
+}
+
+.infoBody {
+    padding: 3%;
+    margin: 5%;
+    border: 1px black solid;
+    border-radius: 20px;
+}
+
+mat-icon.material-icons-round.grn {
+    color:green;
+}

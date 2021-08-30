@@ -1,0 +1,335 @@
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+}
+  
+.toolbar img {
+  margin: 0 16px;
+}
+
+.toolbar #twitter-logo {
+  height: 40px;
+  margin: 0 16px;
+}
+
+.toolbar #twitter-logo:hover {
+  opacity: 0.8;
+}
+  
+.content {
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: center;
+}
+  
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+  position: unset;
+}
+  
+.card {
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  height: 40px;
+  width: 200px;
+  margin: 0 8px 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+  
+.card-container .card:not(:last-child) {
+  margin-right: 0;
+}
+
+.card.card-small {
+  height: 16px;
+  width: 168px;
+}
+
+.card-container .card:not(.highlight-card) {
+  cursor: pointer;
+}
+
+.card-container .card:not(.highlight-card):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+  
+.card-container .card:not(.highlight-card):hover .material-icons path {
+  fill: rgb(105, 103, 103);
+}
+
+.card.highlight-card {
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  border: none;
+  width: auto;
+  min-width: 30%;
+  position: relative;
+}
+
+.card.card.highlight-card span {
+  margin-left: 60px;
+}
+
+//INICIO -- LINK in button
+.circle-link {
+  height: 50px;
+  width: 50px;
+  border-radius: 40px;
+  margin: 8px;
+  background-color: white;
+  border: 1px solid #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 1s ease-out;
+}
+
+.circle-link:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.circle-link-m {
+  height: 60px;
+  width: 60px;
+  border-radius: 40px;
+  margin: 8px;
+  background-color: white;
+  border: 1px solid #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 1s ease-out;
+}
+  
+.circle-link-m:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+//End -- LINK in button
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+
+  .card-container > *:not(.circle-link) ,
+  .terminal {
+    width: 100%;
+  }
+
+  .card:not(.highlight-card) {
+    height: 16px;
+    margin: 8px 0;
+  }
+
+  .card.highlight-card span {
+    margin-left: 72px;
+  }
+
+  svg#rocket-smoke {
+    right: 120px;
+    transform: rotate(-5deg);
+  }
+}
+  
+@media screen and (max-width: 575px) {
+  svg#rocket-smoke {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.banner-to-card {
+  width: calc(100% + 8px * 2) !important;
+  margin-top: -8px;
+  margin-left: -8px !important;
+  font-size: 20px;
+  align-items: center;
+  background-color: #2793e6e0;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+}
+  
+.content iframe {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.fondo-demo {
+  background-color: rgb(6, 188, 243);
+  position:relative;
+  //background: url("./../../src/assets/img/wallpaperproductos.jpg");
+  background-color: #82b8d273;
+  background-size: cover ;
+}
+
+.navbar {
+  box-shadow: 2px 2px 5px #000000;
+  opacity: .9;
+}
+
+.navbar .nav-item .nav-link {
+    color:#fff
+}
+
+.box{
+  border: 5px solid #fafafa;
+  width:900px;
+  height:750px;
+  background-size:cover;
+  background-image: url("../../../../../assets/img/map/caba.png");
+}
+
+.png-icon{
+  margin: .5% auto auto auto;
+}
+
+img.content-add{
+  margin: 0% auto auto -2%;
+  width: 450px;
+  height: 350px;
+}
+img.icon-add{
+  margin: 10% 10% auto 10%;
+  width: 100px;
+  height: 100px;
+}
+
+.online {
+  border-radius: 19px;
+  border: 1px solid #eee;
+  background-color: #fff;
+  width: 80%;
+  padding: 5% 10% 5% 10%;
+  text-transform: uppercase;
+  font-size: x-large;
+}
+
+.overlay {
+  position: fixed; /* Positioning and size */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128,128,128,0.5); /* color */
+  display: none; /* making it hidden by default */
+}
+
+.kuula {
+  position: fixed; /* Positioning and size */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128,128,128,0.5); /* color */
+  display: none; /* making it hidden by default */
+}
+
+.review {
+  position: fixed; /* Positioning and size */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128,128,128,0.5); /* color */
+  display: none; /* making it hidden by default */
+}
+
+.modal {
+  position: fixed; /* positioning in center of page */
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%,-60%);
+  height: 90vh; /* size */
+  //width: 600px;
+  background-color:#f1f1f1 !important; /* background color */
+}
+
+.modal-s {
+  position: fixed; /* positioning in center of page */
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%,-60%);
+  height: 60vh; /* size */
+  //width: 600px;
+  background-color:#f1f1f1 !important; /* background color */
+}
+
+.card-video {
+  width: 100%;
+  margin: 15% auto auto 5%;
+  height: 60%;
+}
+.card-title {
+  font-weight: 700;
+  font-size: 30px;
+  margin: 4% auto 0% auto;
+}
+img.banner_mendoza {
+  width: 600px;
+  height: 180px;
+  background-image: url('./../../../../../assets/img/ad/mendoza.gif');
+  background-position: center center;
+  background-size: cover;
+}
+  
+svg#clouds {
+  position: fixed;
+  bottom: -160px;
+  left: -230px;
+  z-index: -10;
+  width: 1920px;
+}
+
+//PAPEL TAMIZ
+/*.fondo-demo{
+  background-image: url('./../../../../../assets/img/svg/cloud-xs.svg');
+  //background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/SVG_logo.svg/240px-SVG_logo.svg.png");
+  background-size:12vw;
+  background-position-x: left;
+  padding: 5% 0% 2% 5%;
+}*/
+
+img.mat-icon.icon-xs{
+  width: 3vw;
+  height: 5vh;
+  padding: 1% 0px 0px 5%;
+}
+
+mat-icon.icon-s{
+  font-size: 30px !important;
+  color: green;
+}
+
+div.text-on{
+  font-size: 20px;
+}

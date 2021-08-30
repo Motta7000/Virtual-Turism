@@ -1,0 +1,145 @@
+<!-- INICIO: NAVEGATION -->
+<nav class="navbar navbar-expand-lg navbar-dark nav m-0">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home"> INICIO |</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tours"> TOURS |</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Fin NAVEGATION -->
+<!-- INICIO: TITULO APP -->
+<nav class="banner shadow-none">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="title"> TuristeAR </div>
+      <div class="sub-title"> Argentina para el mundo </div><!--Conoce el mundo desde casa-->
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</nav>
+<!-- Fin TITULO APP -->
+
+<div class="fondo-demo" style="min-height: 96vh;">
+
+<div class="content mt-0 mb-0 pt-3" role="main">
+
+  <!-- Highlight Card -->
+  <div class="card highlight-card card-small">
+
+    <h2>Bienvenido a Roma</h2>
+
+  </div>
+  
+  <img class="img-fluid" src="../../../../../assets/img/tour/roma.jpg"><img>
+
+  <br/><br/>
+
+ <div class="box mb-2">
+    <button color="primary" type="button" class="btn btn-primary item1">Coliseo</button>
+    <button color="primary" type="button" class="btn btn-primary item2">Vaticano</button>
+    <button color="primary" type="button" class="btn btn-primary item3">Trajano</button>
+ </div>
+
+
+  <!-- Video container -->
+  <iframe *ngIf="reproductorVideo" [src]="safeSrc" width="970" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreen
+    allowfullscreen></iframe>
+
+  <div class="card-container mt-3">
+    <input type="hidden" #selection>
+
+    <div *ngIf="showBtn">
+
+      <div *ngFor="let option of options">
+        
+        <button color="primary" class="card" (click)="selection.value = option.id; onSelect(option)"> {{option?.descripcion}}&nbsp;<mat-icon color="accent"> {{option?.icon}} </mat-icon></button>
+        <mat-label class="fw7 f6 mt1 mb0 ttu">{{option?.description}}</mat-label>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div *ngIf="false" class="card terminal" [ngSwitch]="selection.value">
+      <pre *ngSwitchDefault> Tomate tu tiempo... </pre>
+      <div *ngFor="let option of options">
+        <pre *ngSwitchCase="option.id"> {{option.descripcion}} </pre>
+      </div>
+  </div>
+
+  <div *ngIf="redirectHome">
+    <h1> Ojala que vuelvas pronto ;) </h1>
+  </div>
+</div>
+
+</div>
+<!-- INICIO: FOOTER -->
+<footer class="footer">
+  <div class="container text-white">
+    <br/>
+    <div class="row">
+      <!-- Redes sociales -->
+      <div class="col-md-4 col-lg-5">
+        <div class="title"> Redes sociales </div>
+        <p>
+          <mat-icon class="material-icons-round">facebook</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">TuristeAR</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">travel_explore</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">TuristeAR.blog.com</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">share</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">TuristeAR</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">alternate_email</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Turiste_AR</span>
+        </p>
+      </div>
+      <!-- Contacto -->
+      <div class="col-md-4 col-lg-5">
+        <div class="title"> Valoranos </div>
+        <p>
+          <mat-icon class="material-icons-round">local_cafe</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Cafecito</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">star</mat-icon>&nbsp;&nbsp;
+          <a style="vertical-align: super;" href="https://github.com/AndreaRojas/app-control-turismo-ui" target="_blank" rel="noopener"> Dejanos una estrella</a>
+        </p>
+      </div>
+      <!-- Contacto -->
+      <div class="col-md-4 col-lg-2">
+        <div class="title"> Contacto </div>
+        <p>
+          <mat-icon class="material-icons-round">location_city</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Buenos Aires</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">location_on</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Lima 775, C1073</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">call</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">(011) 4000-7600</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">alternate_email</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">info@turistear.com</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Fin FOOTER -->

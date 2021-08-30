@@ -1,0 +1,378 @@
+<script>
+  var locModal = document.getElementById('locModal');
+  var btnclose = document.getElementById('w-change-close');
+  var btnShow = document.getElementById('w-change-location');
+  //mostrar modal
+  btnShow.addEventListener('click', (e) => {
+    console.log("hola")
+    locModal.style.display = "block";
+    locModal.style.paddingRight = "17px";
+    locModal.className = "modal fade show";
+  });
+  //esconder modal
+  btnclose.addEventListener('click', (e) => {
+    locModal.style.display = "none";
+    locModal.className = "modal fade";
+  });
+</script>
+
+<!-- INICIO: NAVEGATION -->
+<nav class="navbar navbar-expand-lg navbar-dark nav m-0">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home"> INICIO |</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tours"> TOURS |</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Fin NAVEGATION -->
+<!-- INICIO: TITULO APP -->
+<nav class="banner shadow-none">
+  <div class="row" style="width: 100%;">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="title"> TuristeAR </div>
+      <div class="sub-title"> Argentina para el mundo </div><!--Conoce el mundo desde casa-->
+    </div>
+    <div class="col-md-4 pr-0"></div>
+  </div>
+</nav>
+<!-- Fin TITULO APP -->
+<!-- INICIO: Banner COVID-->
+<nav class="my-4 mb-2 shadow-none">
+  <div class="col-md-6">
+    <div class="banner banner_center_covid">
+    </div>
+  </div>
+</nav>
+<!-- Fin BANNER -->
+
+<div class="row" style="min-height: 96vh;">
+
+  <div class="encabezado navbar shadow-none frente">
+    <div class="container pt-1">
+      <h3>País</h3>
+      <div class="form-group">
+        <select class="form-control show-tick form-control-lg">
+            <option value="" selected> Seleccione... </option>
+            <option value="ARG">Argentina</option>
+        </select>
+      </div>
+      <!--mat-form-field>
+        <input type="text" placeholder="Enter City" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field-->
+      <h3>Ciudad</h3>
+      <div class="form-group">
+        <select class="form-control show-tick form-control-lg">
+            <option value="" selected> Seleccione... </option>
+            <option value="BA">Buenos Aires</option>
+        </select>
+      </div>
+      <h3>Temática</h3>
+      <div class="form-group">
+        <select class="form-control show-tick form-control-lg">
+            <option value="" selected> Seleccione... </option>
+            <option value="">Educativo</option>
+            <option value="">Regional</option>
+        </select>
+      </div>
+      <h3>Guía</h3>
+      <div class="form-group">
+        <select class="form-control show-tick form-control-lg">
+            <option value="" selected> Seleccione... </option>
+            <option value="">Luisito</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="productos-header mx-0 text-center">
+
+    <div class="container pb-3 pt-4 justify-content-center text-center">
+      <h1 class="text-black my-3"> Tours </h1>
+      <div class="row">
+      
+        <div class="col-lg-3 py-2">
+          <div class="card card-video">
+            <div class="card-body">
+              <img src="assets/img/tours/mendoza.jpg" class="bg-image img-fluid w-100 hover-zoom " alt="Mendoza" >
+              <div class="title">Mendoza</div>
+              <p>Mendoza es una ciudad de la región de Cuyo en Argentina y es el corazón de la zona vitivinícola 
+                argentina, famosa por sus Malbecs y otros vinos tintos.</p>
+              <br/>
+              <div class="container">
+
+                <div class="row">
+                  <div class="col-auto px-0">
+                    <a class="nav-link">
+                      <button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="¡"> ADELANTO </button>
+                    </a>
+                  </div>
+                  <div class="col-auto px-0">
+                    <a *ngIf="notPaid" class="nav-link pr-0 pl-1" >
+                      <button type="button" class="btn btn-success"> + INFO </button> 
+                    </a>
+                    <a *ngIf="!notPaid" class="nav-link" href="/interactivo/1234">
+                      <button type="button" class="btn btn-primary"> VER </button> 
+                    </a>
+                  </div>
+                </div>
+                <hr/>
+                <div class="row p-2">
+                  <div class="col-md-4">
+                    <span>1,6 M</span>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-icon class="material-icons-round text-warning">star</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star_half</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star_border</mat-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 py-2" >
+          <div class="card card-video">
+            <div class="card-body">
+              <img src="assets/img/tours/caba.jpg" class="bg-image img-fluid w-100 hover-zoom " alt="Buenos Aires">
+              <div class="title">Buenos Aires</div>
+              <p>Imperdible recorrido alrededor de la muy conocida "city porteña". No te pierdas esta oportunidad y 
+                sumate a conocerla más en detalle.</p>
+              <div class="container">
+                <div class="row mb-3">
+                  <div class="col-auto ml-2" style="width: 25%;">
+                    <img src="../../../../assets/img/gif/giphy.gif" style="position: relative;top: -5px;" class="w-100">
+                  </div>
+                  <div class="col-auto">
+                    <h5>¡Tour en línea!</h5>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-auto px-0">
+                    <a class="nav-link">
+                      <button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#chusmear"> ADELANTO </button>
+                    </a>
+                  </div>
+                  <div class="col-auto px-0">
+                    <a *ngIf="notPaid" class="nav-link pr-0 pl-1" href="/video/1234">
+                      <button type="button" class="btn btn-success"> + INFO </button> 
+                    </a>
+                    <a *ngIf="!notPaid" class="nav-link" href="/interactivo/1234">
+                      <button type="button" class="btn btn-primary"> VER </button> 
+                    </a>
+                  </div>
+                </div>
+                <hr/>
+                <div class="row p-2">
+                  <div class="col-md-4">
+                    <span>2,3 M</span>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-icon class="material-icons-round text-warning">star</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star_half</mat-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 py-2">
+          <div class="card card-video">
+            <div class="card-body" style="height: 597px;">
+              <img src="assets/img/tours/cordoba.jpg" class="bg-image img-fluid w-100 hover-zoom " alt="Salta">
+              <div class="title">Córdoba</div>
+              <p>Córdoba, la capital de la provincia argentina del mismo nombre, es conocida por su arquitectura 
+                colonial española y sus reconfortables sierras ¡No te lo pierdas!</p>
+              <br/>
+              <div class="container">
+                <div class="row">
+                  <div class="col-auto px-0">
+                    <a class="nav-link">
+                      <button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="¡"> ADELANTO </button>
+                    </a>
+                  </div>
+                  <div class="col-auto px-0">
+                    <a *ngIf="notPaid" class="nav-link pr-0 pl-1" >
+                      <button type="button" class="btn btn-success"> + INFO </button> 
+                    </a>
+                    <a *ngIf="!notPaid" class="nav-link" href="/interactivo/1234">
+                      <button type="button" class="btn btn-primary"> VER </button> 
+                    </a>
+                  </div>
+                </div>
+                <hr/>
+                <div class="row p-2">
+                  <div class="col-md-4">
+                    <span>7,2 M</span>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-icon class="material-icons-round text-warning">star</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star_half</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star_border</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star_border</mat-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 py-2">
+          <div class="card card-video">
+            <div class="card-body">
+              <img src="assets/img/tours/salta.jpg" class="bg-image img-fluid w-100 hover-zoom " alt="Córdoba">
+              <div class="title">Salta</div>
+              <p>Salta es una capital provincial del noroeste montañoso de Argentina.
+                Se fundó en 1582. La ciudad se centra en la Plaza 9 de Julio, elegante y rodeada de cafés.</p>
+              <br/>
+              <div class="container">
+                <div class="row">
+                  <div class="col-auto px-0">
+                    <a class="nav-link">
+                      <button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="¡"> ADELANTO </button>
+                    </a>
+                  </div>
+                  <div class="col-auto px-0">
+                    <a *ngIf="notPaid" class="nav-link pr-0 pl-1" >
+                      <button type="button" class="btn btn-success"> + INFO </button> 
+                    </a>
+                    <a *ngIf="!notPaid" class="nav-link" href="/interactivo/1234">
+                      <button type="button" class="btn btn-primary"> VER </button> 
+                    </a>
+                  </div>
+                </div>
+                <hr/>
+                <div class="row p-2">
+                  <div class="col-md-4">
+                    <span>5,0 M</span>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-icon class="material-icons-round text-warning">star</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star_half</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star_border</mat-icon>
+                    <mat-icon class="material-icons-round text-warning">star_border</mat-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- GIFs #1 Destinos -->
+      <div class="row my-n2 my-2">
+        <div class="col-sm-12">
+          <p class="mb-n1"> Publicidad </p>
+          <img class="banner_meli">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- INICIO: FOOTER -->
+<footer class="footer">
+  <div class="container text-white">
+    <br/>
+    <div class="row">
+      <!-- Redes sociales -->
+      <div class="col-md-4 col-lg-5">
+        <div class="title"> Redes sociales </div>
+        <p>
+          <mat-icon class="material-icons-round">facebook</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">TuristeAR</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">travel_explore</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">TuristeAR.blog.com</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">share</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">TuristeAR</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">alternate_email</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Turiste_AR</span>
+        </p>
+      </div>
+      <!-- Contacto -->
+      <div class="col-md-4 col-lg-5">
+        <div class="title"> Valoranos </div>
+        <p>
+          <mat-icon class="material-icons-round">local_cafe</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Cafecito</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">star</mat-icon>&nbsp;&nbsp;
+          <a style="vertical-align: super;" href="https://github.com/AndreaRojas/app-control-turismo-ui" target="_blank" rel="noopener"> Dejanos una estrella</a>
+        </p>
+      </div>
+      <!-- Contacto -->
+      <div class="col-md-4 col-lg-2">
+        <div class="title"> Contacto </div>
+        <p>
+          <mat-icon class="material-icons-round">location_city</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Buenos Aires</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">location_on</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">Lima 775, C1073</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">call</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">(011) 4000-7600</span>
+        </p>
+        <p>
+          <mat-icon class="material-icons-round">alternate_email</mat-icon>&nbsp;&nbsp;
+          <span style="vertical-align: super;">info@turistear.com</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Fin FOOTER -->
+
+<!-- Popup Teaser -->
+<div class="modal fade" id="chusmear" tabindex="-1" role="dialog" aria-labelledby="chusmearTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Adelanto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col pl-5"> <iframe width="560" height="315" src="https://www.youtube.com/embed/F2sepCUnENg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="col-sm-9"></div>
+      </div>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="navigateToVideo(1234)">Ir a comprar</button>
+      </div>
+    </div>
+  </div>
+</div>

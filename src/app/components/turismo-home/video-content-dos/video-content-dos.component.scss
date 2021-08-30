@@ -1,0 +1,123 @@
+.navbar {
+    box-shadow: 2px 2px 5px #000000;
+    opacity: .9;
+}
+
+.navbar .nav-item .nav-link {
+    color:#fff
+}
+
+.main-header{
+    position:relative;
+  
+    background: url("./../../../../assets/img/fondo.jpg");
+    background-size: cover ;
+    min-height: 700px;
+}
+
+.productos-header{
+    position:relative;
+    //background: url("./../../src/assets/img/wallpaperproductos.jpg");
+    background-color: #82b8d273;
+    background-size: cover ;
+    z-index: 1;
+ 
+}
+.copyright{
+    max-height: 20px;
+}
+
+.background-overlay{
+    position:absolute;
+    background:rgb(47, 54, 64,0.6);
+    //top:0;
+    //left:0;
+    width:100%;
+    height:100%;
+}
+
+.team {
+    background:#30336b;
+}
+
+.productos{
+    background:white
+}
+
+.duracion{
+    margin-left:auto;
+    margin-right:0;
+}
+
+.card-video{
+    cursor: pointer
+}
+
+.responsive{
+    height: 100%;
+    width: 100%;
+}
+
+.responsive-div{
+    min-height: 400px;
+}
+
+.ventana-modal{
+    width: 800px;
+}
+
+.collapse.navbar-collapse > ul li a{
+    color: white;
+    font-size: 26px;
+    opacity: .9;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+nav.navbar.navbar-expand-lg.nav{
+    background-color: #1692e0d4;//#1da7ff;
+}
+
+.footer {
+    background-color: #434343;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 300px;
+}
+
+mat-icon.icon{
+    font-size: 26px;
+    padding: 2px 0px 0px 10px;
+}
+
+.row > div .title {
+    opacity: .9;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 15px 0px 15px 0px;
+}
+
+// Title app
+nav.banner {
+    background-color: rgb(255 255 255 / 25%);
+    text-align: center;
+    padding: 1% 0px 1% 0px;
+}
+
+nav.banner > div .title {
+    color: #5fb2e2;
+    font-size: 50px;
+    font-weight: 900;
+    -webkit-text-stroke: 1px black;
+}
+
+nav.banner > div .sub-title {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: fantasy;
+    margin-top: -10px !important;
+}
+// fin title app
